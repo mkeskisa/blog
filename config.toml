@@ -1,4 +1,4 @@
-baseurl = "https://username.github.io"
+baseurl = "https://mkeskisa.netlify.com"
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
 title = "Stuff by me"
@@ -8,6 +8,7 @@ pygmentsStyle = "trac"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 #disqusShortname = "XXX"

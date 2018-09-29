@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/post/2018-09-29-tyottomyys/</loc>
+    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/post/2018-01-20-sarjataulukko/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/page/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/categories/finnish/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/page/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/post/</loc>
+    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/tags/r/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/categories/r/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/</loc>
+    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/tags/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mkeskisa.netlify.com/tags/urheilu/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
