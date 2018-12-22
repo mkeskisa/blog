@@ -1,0 +1,65 @@
+---
+title: Liigan päästettyjen maalien ennätykset ja niiden polut
+author: Markus Keski-Säntti
+date: '2018-12-23'
+slug: liigan-päästettyjen-maalien-ennätykset-ja-niiden-polut
+categories: []
+tags: []
+subtitle: ''
+---
+
+
+
+<p>Kulunut jääkiekkokausi on ollut täysin suvereenia Kärppien dominointia. Tästä kielii niin päästettyjen kuin tehtyjen maalien määrä. Tämän kauden raameissa 46 päästettyä maalia 32 pelissä (1,4375 per peli) on huomattavan hyvä, mutta löytyykö historiasta parempia suorituksia? Alla olevasta kuvakaappauksesta käy ilmi myöskin Kärppien ylivoimaisuus muutenkin kuin päästettyjen maalien saralla.</p>
+<div class="figure">
+<img src="/post/2018-12-22-liigan-päästettyjen-maalien-ennätykset-ja-niiden-polut_files/chrome_2018-12-22_20-40-06.png" alt="Sarjatilanne kirjoitushetkellä" />
+<p class="caption">Sarjatilanne kirjoitushetkellä</p>
+</div>
+<p>Keskityn kuitenkin pelkästään päästettyihin maaleihin, jotta artikkeli ei veny liian pitkäksi. Vähiten maaleja yhtenä kautena on päästänyt Jokerit 1995-1996 (91 maalia 50 pelissä, 1,82 per peli). Jossain määrin yllättäen toiseksi vähiten maaleja on päästetty 60-pelin aikakaudella (Oletettavasti olisi helpompi päästää absoluuttisesti vähemmän maaleja runkosarjan kestäessä 30 peliä). Tämä ennätys on JYPin nimissä kaudelta 2010-2011, jolloin JYP päästi 97 maalia runkosarjan 60 pelissä (1,61666… per peli). Kärpät on siis “edellä” aikaisempaa ennätätystä. Mielenkiintoisena knoppitietona mainittakoon tosin, että kauden 32. pelin kohdalla JYPin päästeyt maalit olivat tismalleen samat kuin kärpillä tällä hetkellä (46 maalia 32 pelissä).</p>
+<p>Hyödyntämällä aiemmassa artikkelissa muodostamaani aikasarjadataa kaikista Liigan peleistä voin muodostaa jokaisen joukkueen jokaisen kauden päästettyjen maalien kumulatiiviset käyrät ja esittää ne visuaalisesti.</p>
+<pre class="r"><code>cumdata &lt;- readRDS(&#39;liigadata.rds&#39;) %&gt;% 
+  unnest(data) %&gt;% 
+  gather(paikka, joukkue, -kausi, -pvm, -X7, -X8, -kotimaalit, -vierasmaalit) %&gt;% 
+  arrange(pvm) %&gt;% 
+  mutate(tehdyt_maalit = ifelse(paikka == &#39;kotijoukkue&#39;, kotimaalit, vierasmaalit),
+         päästetyt_maalit = ifelse(paikka == &#39;kotijoukkue&#39;, vierasmaalit, kotimaalit))  %&gt;% 
+  group_by(joukkue, kausi) %&gt;% 
+  mutate(tehdyt_maalit = cumsum(tehdyt_maalit),
+         päästetyt_maalit = cumsum(päästetyt_maalit),
+         maaliero = tehdyt_maalit - päästetyt_maalit,
+         peli = row_number()) %&gt;% 
+  ungroup %&gt;% 
+  filter(!is.na(kotimaalit))
+
+kärpät19 &lt;- cumdata %&gt;% 
+  filter(kausi == &#39;2018-2019&#39;, joukkue == &#39;Kärpät&#39;) %&gt;% 
+  mutate(label = paste(joukkue, kausi))
+jyp11 &lt;- cumdata %&gt;% 
+  filter(kausi == &#39;2010-2011&#39;, joukkue == &#39;JYP&#39;) %&gt;% 
+  mutate(label = paste(joukkue, kausi))
+
+
+cumdata %&gt;% 
+  ggplot(aes(x = peli, y = päästetyt_maalit, group = interaction(kausi, joukkue), label = label), size = 1) + 
+  geom_line(alpha = .1, color = &#39;black&#39;, aes(label = NULL)) +
+  ggrepel::geom_text_repel(data = kärpät19 %&gt;% 
+                             arrange(desc(peli)) %&gt;% 
+                             distinct(kausi, .keep_all = T), 
+                           aes(fontface = &#39;bold&#39;), color = &#39;orange&#39;, nudge_x = 1)+
+  ggrepel::geom_text_repel(data = jyp11 %&gt;% 
+                             arrange(desc(peli)) %&gt;% 
+                             distinct(kausi, .keep_all = T), 
+                           aes(fontface = &#39;bold&#39;), color = &#39;red&#39;, nudge_x = 1)+
+  ggrepel::geom_text_repel(data = cumdata %&gt;% 
+                             arrange(desc(päästetyt_maalit)) %&gt;% 
+                             head(1) %&gt;% 
+                             mutate(label = paste(joukkue, kausi)),
+                           aes(fontface = &#39;bold&#39;), nudge_x = 1)+
+  geom_line(data = jyp11, color = &#39;red&#39;) +
+  geom_line(data = kärpät19, color = &#39;orange&#39;) +
+  scale_x_continuous(limits = c(0, 65)) +
+  labs(y = &#39;Päästetyt maalit&#39;, x = &#39;Pelatut pelit&#39;) +
+  theme_minimal()</code></pre>
+<p><img src="/post/2018-12-22-liigan-päästettyjen-maalien-ennätykset-ja-niiden-polut_files/figure-html/unnamed-chunk-2-1.png" width="672" /> Vaikka tarkoitukseni ei ollut paneutua jääkiekon aikakausien eroihin, on selvää, että myöskin Suomessa maaleja tehtiin aivan eri tahtiin 1970-luvun lopulla ja 1980-luvulla. Nippelitietona eniten maaleja kaudessa on päästänyt KOO-VEE 1979-1980 kaudella (302 päästettyä maalia 36 pelissä).</p>
+<p>Kärppien ja JYP:n ennätyskauden välilläkin on jo useampi vuosi. Onko maalinteko vähentynyt kahdeksan vuoden takaisesta?</p>
+<p><img src="/post/2018-12-22-liigan-päästettyjen-maalien-ennätykset-ja-niiden-polut_files/figure-html/unnamed-chunk-3-1.png" width="672" /> Kumpikaan kausi ei ole ollut selkeästi toista maalittomampi, lienee siis turvallista sanoa, että olosuhteet tehdä ennätys olivat hyvin samanlaiset myös JYP:n hirmukaudella. Nähtäväksi jää, pystyykö Kärpät parempaan kevääseen kuin JYP.</p>

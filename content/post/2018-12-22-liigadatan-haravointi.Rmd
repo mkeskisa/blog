@@ -66,7 +66,7 @@ liiga_scrape <- function(x) {
     tail(-1)
 }
 
-liigadata <- 1976:2017 %>% 
+liigadata <- 1976:2019 %>% 
   as.tibble() %>% 
   mutate(year_string = paste0(value-1, '-', value),
          url = paste0('https://liiga.fi/fi/ottelut/', year_string, '/runkosarja/'),

@@ -73,7 +73,7 @@ scrape_data &lt;- &#39;https://liiga.fi/fi/ottelut/1975-1976/runkosarja/&#39; %&
     tail(-1)
 }
 
-liigadata &lt;- 1976:2017 %&gt;% 
+liigadata &lt;- 1976:2019 %&gt;% 
   as.tibble() %&gt;% 
   mutate(year_string = paste0(value-1, &#39;-&#39;, value),
          url = paste0(&#39;https://liiga.fi/fi/ottelut/&#39;, year_string, &#39;/runkosarja/&#39;),
@@ -93,7 +93,7 @@ liigadata &lt;- 1976:2017 %&gt;%
   mutate(pvm = pvm %&gt;% ymd())
 
 liigadata </code></pre>
-<pre><code>## # A tibble: 12,706 x 8
+<pre><code>## # A tibble: 13,606 x 8
 ##    kausi pvm        kotijoukkue vierasjoukkue kotimaalit vierasmaalit X7   
 ##    &lt;chr&gt; &lt;date&gt;     &lt;chr&gt;       &lt;chr&gt;              &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;
 ##  1 1975~ 1975-09-18 FoPS        KOO-VEE                3            4 &lt;NA&gt; 
@@ -106,11 +106,11 @@ liigadata </code></pre>
 ##  8 1975~ 1975-09-21 Lukko       Sport                  7            1 &lt;NA&gt; 
 ##  9 1975~ 1975-09-21 TPS         Jokerit                3            2 &lt;NA&gt; 
 ## 10 1975~ 1975-09-23 KOO-VEE     Ässät                  3            4 &lt;NA&gt; 
-## # ... with 12,696 more rows, and 1 more variable: X8 &lt;chr&gt;</code></pre>
+## # ... with 13,596 more rows, and 1 more variable: X8 &lt;chr&gt;</code></pre>
 <p>Datassa on kaikki pelit kaudelta 1975-1976 haravointihetkeen asti. Data ei ole vielä aivan optimaalisessa muodossa kaikkea laskentaa koskien, mutta muodoltaan yksi rivi per ottelu on varmasti jokaiselle jääkiekkoharrastajalle tuttu. Pesäistettynä data on ymmärrettävässä käyttömuodossa seuraavia laskentoja varten. X7 ja X8 sarakkeiden tiedot koskevat merkintää jatkoajasta ja yleisömääristä, joita ei ole ollut käytössä aivan datan alusta lähtien. Ne voivat kuitenkin olla hyödyllisiä joten pidän ne mukana datassa.</p>
 <pre class="r"><code>liigadata %&gt;% 
   nest(-kausi)</code></pre>
-<pre><code>## # A tibble: 42 x 2
+<pre><code>## # A tibble: 44 x 2
 ##    kausi     data              
 ##    &lt;chr&gt;     &lt;list&gt;            
 ##  1 1975-1976 &lt;tibble [180 x 7]&gt;
@@ -123,4 +123,4 @@ liigadata </code></pre>
 ##  8 1982-1983 &lt;tibble [180 x 7]&gt;
 ##  9 1983-1984 &lt;tibble [190 x 7]&gt;
 ## 10 1984-1985 &lt;tibble [180 x 7]&gt;
-## # ... with 32 more rows</code></pre>
+## # ... with 34 more rows</code></pre>
