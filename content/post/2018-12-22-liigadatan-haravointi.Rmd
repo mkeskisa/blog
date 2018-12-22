@@ -50,10 +50,11 @@ scrape_data %>%
   mutate_at(
     vars(contains('maalit')),
     funs(as.numeric(.))
-  ) 
+  ) %>% 
+  mutate_all(.funs= trimws)
 ```
 
-Etuna excel copypastemetodiin on kuitenkin se, että saman voi tehdä yht'aikaisesti jokaiselle kaudelle, mitä liigan sivustolta löytyy:
+Etuna excel copypastemetodiin on kuitenkin se, että saman voi tehdä yht'aikaisesti jokaiselle kaudelle, mitä liigan sivustolta löytyy. Tehdään siis kokonaan sama prosessi uudestaan, mutta tehdään näin kaikille kausille 1975-kaudesta viimeisimpään kauteen.
 ```{r eval=TRUE, message=FALSE, warning=FALSE, echo = TRUE}
 liiga_scrape <- function(x) {
   x %>% 
@@ -86,12 +87,11 @@ liigadata <- 1976:2017 %>%
 
 liigadata 
 ```
-Datassa on kaikki pelit kaudelta 1975-1976 haravointihetkeen asti. Data ei ole vielä aivan optimaalisessa muodossa kaikkea laskentaa koskkien, mutta muodoltaan yksi rivi per ottelu on varmasti jokaiselle jääkiekkoharrastajalle tuttu. Pesäistettynä data on ymmärrettävässä käyttömuodossa seuraavia laskentoja varten.
+Datassa on kaikki pelit kaudelta 1975-1976 haravointihetkeen asti. Data ei ole vielä aivan optimaalisessa muodossa kaikkea laskentaa koskien, mutta muodoltaan yksi rivi per ottelu on varmasti jokaiselle jääkiekkoharrastajalle tuttu. Pesäistettynä data on ymmärrettävässä käyttömuodossa seuraavia laskentoja varten. X7 ja X8 sarakkeiden tiedot koskevat merkintää jatkoajasta ja yleisömääristä, joita ei ole ollut käytössä aivan datan alusta lähtien. Ne voivat kuitenkin olla hyödyllisiä joten pidän ne mukana datassa.
 
 ```{r, eval = T, echo = T}
 liigadata %>% 
-  nest(-kausi) %>% 
-  saveRDS('liigadata.rds')
+  nest(-kausi)
 ```
 
 
