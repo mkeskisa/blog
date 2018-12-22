@@ -1,0 +1,98 @@
+---
+title: Liigadatan haravointi
+author: Markus Keski-Säntti
+date: '2018-12-22'
+slug: liigadatan-haravointi
+categories: []
+tags: []
+subtitle: ''
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Internet on täynnä dataa, mutta harvoin data suoraan palvelee suoraan haluttua käyttötarkoitusta. Itseäni kovasti kiinnostaa kuinka ylivoimainen Oulun Kärpät on ollut historiaan peilattuna. Toki muutamia nippelitietoja olen kuullut erilaisista luotettavista lähteistä, mutta mitään hyviä visualisointeja en ole nähnyt maalierosta, päästettyjen maalian määrästä jne. Liiga.fi sivulla on useita tilastoja, kuten nykyinen sarjataulukkotilanne, maalierot, pistepörssit, mutta näiden avulla ei voida muodostaa haluttua aikasarjatyyppistä dataa, minkä avulla ylivoiman (ei se pelin ylivoima, jossa vastustaja on jäähyllä) visualisointi olisi kaikista mielekkäintä. Täten ajattelin illan ratoksi haravoida (eng. scrape) tietoa Liigan sivuilta kausi-kaudelta ja ottelu-ottelulta ja muodostaa käyttökelpoisen datan, josta voi tarkastella ja tehdä aikasarjavisualisointeja.
+
+![Liiga.fi 22.12.2012 haravoitava sivu](/post/2018-12-22-liigadatan-haravointi_files/YKlX4Pj.jpg)
+
+Jos sivulta haluttaisiin haravoida yksi kausi, sen voisi tehdä copypasteemalla datan exceliin ja exporttaamalla haluttuun muotoon. Pieniä neppailuja siinäkin. R:ssä vastaava yhden taulukon haravointi ei vie montaa sekuntia pidempään, mutta vaatii hieman enemmän ymmärrystä mitä tekee. Näppäimistö ei saman asiantekemisessä kovin paljoa kulu.
+
+![XPath löytyy tutkimalla sivustoa](/post/2018-12-22-liigadatan-haravointi_files/chrome_2018-12-22_17-11-11.png)
+
+```{r eval=TRUE, message=FALSE, warning=FALSE, echo = TRUE}
+library(tidyverse)
+library(lubridate)
+library(rvest)
+library(fbcutils)
+
+scrape_data <- 'https://liiga.fi/fi/ottelut/1975-1976/runkosarja/' %>% 
+  read_html() %>% 
+  html_nodes(xpath = '//*[@id="games"]') %>% 
+  html_table %>% 
+  as.data.frame() %>% 
+  as.tibble() %>% 
+  tail(-1)
+```
+
+Pieniellä muokkauksella tilastot saadaan jääkiekonystävälle tuttuun muotoon:
+```{r eval=TRUE, message=FALSE, warning=FALSE, echo = TRUE}
+scrape_data %>%
+  select(X2, X4, X6) %>% 
+  mutate(X4 = str_replace_all(X4, '\n', ' ')) %>% 
+  separate(X4, into = c('kotijoukkue', 'vierasjoukkue'), sep = '  -  ') %>% 
+  separate(X6, into = c('kotimaalit', 'vierasmaalit')) %>% 
+  mutate(pvm = str_sub(X2, 4) %>% dmy()) %>% 
+  fill(pvm) %>% 
+  select(-X2) %>% 
+  mutate_at(
+    vars(contains('maalit')),
+    funs(as.numeric(.))
+  ) 
+```
+
+Etuna excel copypastemetodiin on kuitenkin se, että saman voi tehdä yht'aikaisesti jokaiselle kaudelle, mitä liigan sivustolta löytyy:
+```{r eval=TRUE, message=FALSE, warning=FALSE, echo = TRUE}
+liiga_scrape <- function(x) {
+  x %>% 
+    read_html() %>% 
+    html_nodes(xpath = '//*[@id="games"]') %>% 
+    html_table %>% 
+    as.data.frame() %>% 
+    as.tibble() %>% 
+    tail(-1)
+}
+
+liigadata <- 1976:2017 %>% 
+  as.tibble() %>% 
+  mutate(year_string = paste0(value-1, '-', value),
+         url = paste0('https://liiga.fi/fi/ottelut/', year_string, '/runkosarja/'),
+         data = map(url, liiga_scrape)) %>% 
+  unnest(data) %>% 
+  mutate(X4 = str_replace_all(X4, '\n', ' ')) %>% 
+  separate(X4, into = c('kotijoukkue', 'vierasjoukkue'), sep = '  -  ') %>% 
+  separate(X6, into = c('kotimaalit', 'vierasmaalit')) %>% 
+  mutate(pvm = str_sub(X2, 4) %>% dmy()) %>% 
+  fill(pvm) %>% 
+  select(kausi = year_string, pvm, contains('joukkue'), contains('maali'), X7, X8) %>% 
+  mutate_all(.funs = trimws) %>% 
+  mutate_at(
+    vars(contains('maalit')),
+    funs(as.numeric(.))
+  ) %>% 
+  mutate(pvm = pvm %>% ymd())
+
+liigadata 
+```
+Datassa on kaikki pelit kaudelta 1975-1976 haravointihetkeen asti. Data ei ole vielä aivan optimaalisessa muodossa kaikkea laskentaa koskkien, mutta muodoltaan yksi rivi per ottelu on varmasti jokaiselle jääkiekkoharrastajalle tuttu. Pesäistettynä data on ymmärrettävässä käyttömuodossa seuraavia laskentoja varten.
+
+```{r, eval = T, echo = T}
+liigadata %>% 
+  nest(-kausi) %>% 
+  saveRDS('liigadata.rds')
+```
+
+
+
