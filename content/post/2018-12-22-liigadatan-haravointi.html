@@ -107,9 +107,9 @@ liigadata </code></pre>
 ##  9 1975~ 1975-09-21 TPS         Jokerit                3            2 &lt;NA&gt; 
 ## 10 1975~ 1975-09-23 KOO-VEE     Ässät                  3            4 &lt;NA&gt; 
 ## # ... with 12,696 more rows, and 1 more variable: X8 &lt;chr&gt;</code></pre>
-<p>Datassa on kaikki pelit kaudelta 1975-1976 haravointihetkeen asti. Data ei ole vielä aivan optimaalisessa muodossa kaikkea laskentaa koskkien, mutta muodoltaan yksi rivi per ottelu on varmasti jokaiselle jääkiekkoharrastajalle tuttu. Pesäistettynä data on ymmärrettävässä käyttömuodossa seuraavia laskentoja varten. X7 ja X8 sarakkeiden tiedot ovat</p>
+<p>Datassa on kaikki pelit kaudelta 1975-1976 haravointihetkeen asti. Data ei ole vielä aivan optimaalisessa muodossa kaikkea laskentaa koskien, mutta muodoltaan yksi rivi per ottelu on varmasti jokaiselle jääkiekkoharrastajalle tuttu. Pesäistettynä data on ymmärrettävässä käyttömuodossa seuraavia laskentoja varten. X7 ja X8 sarakkeiden tiedot koskevat merkintää jatkoajasta ja yleisömääristä, joita ei ole ollut käytössä aivan datan alusta lähtien. Ne voivat kuitenkin olla hyödyllisiä joten pidän ne mukana datassa.</p>
 <pre class="r"><code>liigadata %&gt;% 
-  nest(-kausi) </code></pre>
+  nest(-kausi)</code></pre>
 <pre><code>## # A tibble: 42 x 2
 ##    kausi     data              
 ##    &lt;chr&gt;     &lt;list&gt;            
