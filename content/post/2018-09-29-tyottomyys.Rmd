@@ -10,7 +10,7 @@ date: 2018-09-29
 
 <style type="text/css">
 body, td {
-   font-size: 12px;
+   font-size: 14px;
 }
 code.r{
   font-size: 10px;
