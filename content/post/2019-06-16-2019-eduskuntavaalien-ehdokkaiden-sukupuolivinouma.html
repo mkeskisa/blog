@@ -10,7 +10,7 @@ subtitle: ''
 
 
 
-<p>Päivän byrokraatin <a href="http://paivanbyrokraatti.com/2019/06/11/eduskunnan_tasa-arvo">artikkelissa</a> pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuoli jakauma.</p>
+<p>Päivän byrokraatin <a href="http://paivanbyrokraatti.com/2019/06/11/eduskunnan_tasa-arvo">artikkelissa</a> pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuolijakauma.</p>
 <pre class="r"><code>library(tidyverse)
 library(lubridate)
 library(pxweb)
@@ -36,9 +36,9 @@ evaa %&gt;%
   scale_x_continuous(expand = c(0,0),
                      breaks = seq(20, 80, by = 5)) + 
   scale_y_continuous(labels = function(x) paste(x*100, &quot;%&quot;),
-                     expand = c(0,0))</code></pre>
-<p><img src="/post/2019-06-16-2019-eduskuntavaalien-ehdokkaiden-sukupuolivinouma_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="r"><code>#ggplot2::ggsave(&quot;c:/users/marku/desktop/sukupuolivinouma2019.png&quot;, h = 3, w = 8)</code></pre>
+                     expand = c(0,0))
+
+#ggplot2::ggsave(&quot;c:/users/marku/desktop/sukupuolivinouma2019.png&quot;, h = 3, w = 8)</code></pre>
 <div id="sarjatilanne-kirjoitushetkella" class="section level1">
 <h1><img src="/post/2019-06-16-2019-eduskuntavaalien-ehdokkaiden-sukupuolivinouma_files/sukupuolivinouma2019.png" alt="Sarjatilanne kirjoitushetkellä" /></h1>
 <p>Näyttää siltä, että eduskuntavaaliehdokkaista suurin osa on miehiä myös nuoremmissa ikäryhmissä, vaikka tämä ei heijastu ministerien sukupuolijakaumaan. Hakijavinouma on erityisen suuri yli 55-vuotiailla.</p>

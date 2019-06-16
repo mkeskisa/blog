@@ -8,11 +8,11 @@
   <title>2019 Eduskuntavaalien ehdokkaiden sukupuolivinouma</title>
   <meta property="og:title" content="2019 Eduskuntavaalien ehdokkaiden sukupuolivinouma" />
   <meta name="twitter:title" content="2019 Eduskuntavaalien ehdokkaiden sukupuolivinouma" />
-  <meta name="description" content="Päivän byrokraatin artikkelissa pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuoli jakauma.
+  <meta name="description" content="Päivän byrokraatin artikkelissa pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuolijakauma.
 library(tidyverse)library(lubridate)library(pxweb)evaa &lt;- get_pxweb_data(url = &quot;http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/vaa/evaa/evaa_2019/110_evaa_2019_tau_101.px&quot;,dims = list(Vaalipiiri = c(&#39;00&#39;),Puolue = c(&#39;00&#39;),Sukupuoli = c(&#39;1&#39;, &#39;2&#39;),Ikä = c(&#39;Sar18&#39;, &#39;Sar19&#39;, &#39;Sar20&#39;, &#39;Sar21&#39;, &#39;Sar22&#39;, &#39;Sar23&#39;, &#39;Sar24&#39;, &#39;Sar25&#39;, &#39;Sar26&#39;, &#39;Sar27&#39;, &#39;Sar28&#39;, &#39;Sar29&#39;, &#39;Sar30&#39;, &#39;Sar31&#39;, &#39;Sar32&#39;, &#39;Sar33&#39;, &#39;Sar34&#39;, &#39;Sar35&#39;, &#39;Sar36&#39;, &#39;Sar37&#39;, &#39;Sar38&#39;, &#39;Sar39&#39;, &#39;Sar40&#39;, &#39;Sar41&#39;, &#39;Sar42&#39;, &#39;Sar43&#39;, &#39;Sar44&#39;, &#39;Sar45&#39;, &#39;Sar46&#39;, &#39;Sar47&#39;, &#39;Sar48&#39;, &#39;Sar49&#39;, &#39;Sar50&#39;, &#39;Sar51&#39;, &#39;Sar52&#39;, &#39;Sar53&#39;, &#39;Sar54&#39;, &#39;Sar55&#39;, &#39;Sar56&#39;, &#39;Sar57&#39;, &#39;Sar58&#39;, &#39;Sar59&#39;, &#39;Sar60&#39;, &#39;Sar61&#39;, &#39;Sar62&#39;, &#39;Sar63&#39;, &#39;Sar64&#39;, &#39;Sar65&#39;, &#39;Sar66&#39;, &#39;Sar67&#39;, &#39;Sar68&#39;, &#39;Sar69&#39;, &#39;Sar70&#39;, &#39;Sar71&#39;, &#39;Sar72&#39;, &#39;Sar73&#39;, &#39;Sar74&#39;, &#39;Sar75&#39;, &#39;Sar76&#39;, &#39;Sar77&#39;, &#39;Sar78&#39;, &#39;Sar79&#39;, &#39;Sar81&#39;, &#39;Sar82&#39;, &#39;Sar84&#39;, &#39;Sar85&#39;)),clean = TRUE) %&gt;% as.">
-  <meta property="og:description" content="Päivän byrokraatin artikkelissa pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuoli jakauma.
+  <meta property="og:description" content="Päivän byrokraatin artikkelissa pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuolijakauma.
 library(tidyverse)library(lubridate)library(pxweb)evaa &lt;- get_pxweb_data(url = &quot;http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/vaa/evaa/evaa_2019/110_evaa_2019_tau_101.px&quot;,dims = list(Vaalipiiri = c(&#39;00&#39;),Puolue = c(&#39;00&#39;),Sukupuoli = c(&#39;1&#39;, &#39;2&#39;),Ikä = c(&#39;Sar18&#39;, &#39;Sar19&#39;, &#39;Sar20&#39;, &#39;Sar21&#39;, &#39;Sar22&#39;, &#39;Sar23&#39;, &#39;Sar24&#39;, &#39;Sar25&#39;, &#39;Sar26&#39;, &#39;Sar27&#39;, &#39;Sar28&#39;, &#39;Sar29&#39;, &#39;Sar30&#39;, &#39;Sar31&#39;, &#39;Sar32&#39;, &#39;Sar33&#39;, &#39;Sar34&#39;, &#39;Sar35&#39;, &#39;Sar36&#39;, &#39;Sar37&#39;, &#39;Sar38&#39;, &#39;Sar39&#39;, &#39;Sar40&#39;, &#39;Sar41&#39;, &#39;Sar42&#39;, &#39;Sar43&#39;, &#39;Sar44&#39;, &#39;Sar45&#39;, &#39;Sar46&#39;, &#39;Sar47&#39;, &#39;Sar48&#39;, &#39;Sar49&#39;, &#39;Sar50&#39;, &#39;Sar51&#39;, &#39;Sar52&#39;, &#39;Sar53&#39;, &#39;Sar54&#39;, &#39;Sar55&#39;, &#39;Sar56&#39;, &#39;Sar57&#39;, &#39;Sar58&#39;, &#39;Sar59&#39;, &#39;Sar60&#39;, &#39;Sar61&#39;, &#39;Sar62&#39;, &#39;Sar63&#39;, &#39;Sar64&#39;, &#39;Sar65&#39;, &#39;Sar66&#39;, &#39;Sar67&#39;, &#39;Sar68&#39;, &#39;Sar69&#39;, &#39;Sar70&#39;, &#39;Sar71&#39;, &#39;Sar72&#39;, &#39;Sar73&#39;, &#39;Sar74&#39;, &#39;Sar75&#39;, &#39;Sar76&#39;, &#39;Sar77&#39;, &#39;Sar78&#39;, &#39;Sar79&#39;, &#39;Sar81&#39;, &#39;Sar82&#39;, &#39;Sar84&#39;, &#39;Sar85&#39;)),clean = TRUE) %&gt;% as.">
-  <meta name="twitter:description" content="Päivän byrokraatin artikkelissa pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuoli jakauma. …">
+  <meta name="twitter:description" content="Päivän byrokraatin artikkelissa pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuolijakauma. …">
   <meta name="author" content="Markus Keski-Säntti"/>
   <link href='https://mkeskisa.netlify.com/img/pusheen2.png' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://mkeskisa.netlify.com/img/pusheen2.png" />
@@ -182,7 +182,7 @@ library(tidyverse)library(lubridate)library(pxweb)evaa &lt;- get_pxweb_data(u
   
   
   &nbsp;|&nbsp;
-  <i class="fa fa-clock-o"></i> 2 minutes (215 words)
+  <i class="fa fa-clock-o"></i> 2 minutes (214 words)
   
   
 </span>
@@ -202,7 +202,7 @@ library(tidyverse)library(lubridate)library(pxweb)evaa &lt;- get_pxweb_data(u
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Päivän byrokraatin <a href="http://paivanbyrokraatti.com/2019/06/11/eduskunnan_tasa-arvo">artikkelissa</a> pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuoli jakauma.</p>
+        <p>Päivän byrokraatin <a href="http://paivanbyrokraatti.com/2019/06/11/eduskunnan_tasa-arvo">artikkelissa</a> pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuolijakauma.</p>
 <pre class="r"><code>library(tidyverse)
 library(lubridate)
 library(pxweb)
@@ -228,9 +228,9 @@ evaa %&gt;%
   scale_x_continuous(expand = c(0,0),
                      breaks = seq(20, 80, by = 5)) + 
   scale_y_continuous(labels = function(x) paste(x*100, &quot;%&quot;),
-                     expand = c(0,0))</code></pre>
-<p><img src="/post/2019-06-16-2019-eduskuntavaalien-ehdokkaiden-sukupuolivinouma_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="r"><code>#ggplot2::ggsave(&quot;c:/users/marku/desktop/sukupuolivinouma2019.png&quot;, h = 3, w = 8)</code></pre>
+                     expand = c(0,0))
+
+#ggplot2::ggsave(&quot;c:/users/marku/desktop/sukupuolivinouma2019.png&quot;, h = 3, w = 8)</code></pre>
 <div id="sarjatilanne-kirjoitushetkella" class="section level1">
 <h1><img src="/post/2019-06-16-2019-eduskuntavaalien-ehdokkaiden-sukupuolivinouma_files/sukupuolivinouma2019.png" alt="Sarjatilanne kirjoitushetkellä" /></h1>
 <p>Näyttää siltä, että eduskuntavaaliehdokkaista suurin osa on miehiä myös nuoremmissa ikäryhmissä, vaikka tämä ei heijastu ministerien sukupuolijakaumaan. Hakijavinouma on erityisen suuri yli 55-vuotiailla.</p>
