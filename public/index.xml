@@ -2,33 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stuff by me</title>
-    <link>/</link>
+    <link>https://mkeskisa.netlify.com/</link>
     <description>Recent content on Stuff by me</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>markuskeskisantti@gmail.com (Markus Keski-Säntti)</managingEditor>
     <webMaster>markuskeskisantti@gmail.com (Markus Keski-Säntti)</webMaster>
-    <lastBuildDate>Sun, 23 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mkeskisa.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Liigan päästettyjen maalien ennätykset ja niiden polut</title>
-      <link>/post/liigan-p%C3%A4%C3%A4stettyjen-maalien-enn%C3%A4tykset-ja-niiden-polut/</link>
-      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      <title>2019 Eduskuntavaalien ehdokkaiden sukupuolivinouma</title>
+      <link>https://mkeskisa.netlify.com/post/eduskuntavaalien-ehdokkaiden-sukupuolivinouma/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       <author>markuskeskisantti@gmail.com (Markus Keski-Säntti)</author>
-      <guid>/post/liigan-p%C3%A4%C3%A4stettyjen-maalien-enn%C3%A4tykset-ja-niiden-polut/</guid>
-      <description>Kulunut jääkiekkokausi on ollut täysin suvereenia Kärppien dominointia. Tästä kielii niin päästettyjen kuin tehtyjen maalien määrä. Tämän kauden raameissa 46 päästettyä maalia 32 pelissä (1,4375 per peli) on huomattavan hyvä, mutta löytyykö historiasta parempia suorituksia? Alla olevasta kuvakaappauksesta käy ilmi myöskin Kärppien ylivoimaisuus muutenkin kuin päästettyjen maalien saralla.
-Sarjatilanne kirjoitushetkellä
-Keskityn kuitenkin pelkästään päästettyihin maaleihin, jotta artikkeli ei veny liian pitkäksi. Vähiten maaleja yhtenä kautena on päästänyt Jokerit 1995-1996 (91 maalia 50 pelissä, 1,82 per peli).</description>
+      <guid>https://mkeskisa.netlify.com/post/eduskuntavaalien-ehdokkaiden-sukupuolivinouma/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros risus, fringilla eget bibendum id, gravida et mauris. Curabitur quis dui id mauris elementum viverra. Nulla ac mi nec metus gravida cursus. Nam commodo hendrerit libero eu rutrum. Nulla sed tempor diam. Duis molestie nunc sit amet ante porta dignissim. Nunc vitae pulvinar massa. In hac habitasse platea dictumst. Nunc varius ornare dui, a interdum mauris. Ut posuere, massa ut mollis suscipit, risus tortor semper libero, sit amet viverra tortor nisl ut lorem.</description>
     </item>
     
     <item>
       <title>Liigan päästettyjen maalien ennätykset ja niiden polut</title>
-      <link>/post/liigan-p%C3%A4%C3%A4stettyjen-maalien-enn%C3%A4tykset-ja-niiden-polut/</link>
+      <link>https://mkeskisa.netlify.com/post/liigan-p%C3%A4%C3%A4stettyjen-maalien-enn%C3%A4tykset-ja-niiden-polut/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       <author>markuskeskisantti@gmail.com (Markus Keski-Säntti)</author>
-      <guid>/post/liigan-p%C3%A4%C3%A4stettyjen-maalien-enn%C3%A4tykset-ja-niiden-polut/</guid>
+      <guid>https://mkeskisa.netlify.com/post/liigan-p%C3%A4%C3%A4stettyjen-maalien-enn%C3%A4tykset-ja-niiden-polut/</guid>
       <description>Kulunut jääkiekkokausi on ollut täysin suvereenia Kärppien dominointia. Tästä kielii niin päästettyjen kuin tehtyjen maalien määrä. Tämän kauden raameissa 46 päästettyä maalia 32 pelissä (1,4375 per peli) on huomattavan hyvä, mutta löytyykö historiasta parempia suorituksia? Alla olevasta kuvakaappauksesta käy ilmi myöskin Kärppien ylivoimaisuus muutenkin kuin päästettyjen maalien saralla.
 Sarjatilanne kirjoitushetkellä
 Keskityn kuitenkin pelkästään päästettyihin maaleihin, jotta artikkeli ei veny liian pitkäksi. Vähiten maaleja yhtenä kautena on päästänyt Jokerit 1995-1996 (91 maalia 50 pelissä, 1,82 per peli).</description>
@@ -36,37 +34,37 @@ Sarjatilanne kirjoitushetkellä
     
     <item>
       <title>Liigadatan haravointi</title>
-      <link>/post/liigadatan-haravointi/</link>
+      <link>https://mkeskisa.netlify.com/post/liigadatan-haravointi/</link>
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0000</pubDate>
       <author>markuskeskisantti@gmail.com (Markus Keski-Säntti)</author>
-      <guid>/post/liigadatan-haravointi/</guid>
+      <guid>https://mkeskisa.netlify.com/post/liigadatan-haravointi/</guid>
       <description>Internet on täynnä dataa, mutta harvoin data suoraan palvelee suoraan haluttua käyttötarkoitusta. Itseäni kovasti kiinnostaa kuinka ylivoimainen Oulun Kärpät on ollut historiaan peilattuna. Toki muutamia nippelitietoja olen kuullut erilaisista luotettavista lähteistä, mutta mitään hyviä visualisointeja en ole nähnyt maalierosta, päästettyjen maalian määrästä jne. Liiga.fi sivulla on useita tilastoja, kuten nykyinen sarjataulukkotilanne, maalierot, pistepörssit, mutta näiden avulla ei voida muodostaa haluttua aikasarjatyyppistä dataa, minkä avulla ylivoiman (ei se pelin ylivoima, jossa vastustaja on jäähyllä) visualisointi olisi kaikista mielekkäintä.</description>
     </item>
     
     <item>
       <title>Visualisointeja työttömyydestä</title>
-      <link>/post/2018-09-29-tyottomyys/</link>
+      <link>https://mkeskisa.netlify.com/post/2018-09-29-tyottomyys/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       <author>markuskeskisantti@gmail.com (Markus Keski-Säntti)</author>
-      <guid>/post/2018-09-29-tyottomyys/</guid>
+      <guid>https://mkeskisa.netlify.com/post/2018-09-29-tyottomyys/</guid>
       <description>2007 alkanut finanssikriisi johti Suomessa pitkään taantumaan, jota usein myös saatetaan kutsua lamaksi. Itse kartan “lama” termin käyttöä tässä asiayhteydessä, koska muihin lamoihin verrattuna viimeisin taantuma on etenkin työttömyyden näkökulmasta huomattavasti lievempi kuin esim. 90-luvun lama, jolloin työttömyys nousi 3,5 %:sta 18,9 %:iin Suomessa. Viimeisimmän taantuman aikana BKT mateli nollassa useita vuosia (mutta ei mitenkään hurjasti pakkasella) ja työttömyys on pysynyt korkealla tasolla (~8-10 %), mutta mitään valtavaa hyppäystä työttömyydessä ei ole tapahtunut.</description>
     </item>
     
     <item>
       <title>Mielenkiintoinen tilanne Liigassa (ex. SM-liiga)</title>
-      <link>/post/2018-01-20-sarjataulukko/</link>
+      <link>https://mkeskisa.netlify.com/post/2018-01-20-sarjataulukko/</link>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       <author>markuskeskisantti@gmail.com (Markus Keski-Säntti)</author>
-      <guid>/post/2018-01-20-sarjataulukko/</guid>
+      <guid>https://mkeskisa.netlify.com/post/2018-01-20-sarjataulukko/</guid>
       <description>Jääkiekossa, kuten useissa muissakin urheilulajeissa, joukkueiden välinen kilpailu on jaksotettu kausittain. Jokaisen joukkueen urheilullinen motivaattori (ainakin toivottavasti) on voittaa kausi. Joskus kuitenkin realiteetit iskevät päin naamaa ja todetaan, ettei menossa olevaa kautta ole mahdollisuutta voittaa, edes teoriassa. Tämä huomataan viimeistään siinä vaiheessa, kun teoreettinen mahdollisuus päästä pudotuspeleihin ja täten finaaliin on menetetty. Herääminen tapahtuu kuitenkin usein huomattavasti aikaisemmin, kun pudotuspeleihin ole enää realistista mahdollisuutta.</description>
     </item>
     
     <item>
       <title>About me</title>
-      <link>/page/about/</link>
+      <link>https://mkeskisa.netlify.com/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>markuskeskisantti@gmail.com (Markus Keski-Säntti)</author>
-      <guid>/page/about/</guid>
+      <guid>https://mkeskisa.netlify.com/page/about/</guid>
       <description>My name is Inigo Montoya. I have the following qualities:
  I rock a great mustache I&amp;rsquo;m extremely loyal to my family  What else do you need?
 my history To be honest, I&amp;rsquo;m having some trouble remembering right now, so why don&amp;rsquo;t you just watch my movie and it will answer all your questions.</description>

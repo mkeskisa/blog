@@ -1,0 +1,48 @@
+---
+title: "2019 Eduskuntavaalien ehdokkaiden sukupuolivinouma"
+author: Markus Keski-Säntti
+date: '2019-06-16'
+slug: eduskuntavaalien-ehdokkaiden-sukupuolivinouma
+categories: []
+tags: []
+subtitle: ''
+---
+
+```{r message=FALSE, warning=FALSE, echo = F}
+library(blogdown)
+```
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros risus, fringilla eget bibendum id, gravida et mauris. Curabitur quis dui id mauris elementum viverra. Nulla ac mi nec metus gravida cursus. Nam commodo hendrerit libero eu rutrum. Nulla sed tempor diam. Duis molestie nunc sit amet ante porta dignissim. Nunc vitae pulvinar massa. In hac habitasse platea dictumst. Nunc varius ornare dui, a interdum mauris. Ut posuere, massa ut mollis suscipit, risus tortor semper libero, sit amet viverra tortor nisl ut lorem. Sed sed bibendum leo. Nunc eget consequat nibh. Integer nulla libero, elementum a mattis et, hendrerit eu quam.
+
+#![Sarjatilanne kirjoitushetkellä](/post/2018-12-22-liigan-päästettyjen-maalien-ennätykset-ja-niiden-polut_files/chrome_2018-12-22_20-40-06.png)
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(pxweb)
+
+evaa <- 
+  get_pxweb_data(url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/vaa/evaa/evaa_2019/110_evaa_2019_tau_101.px",
+                 dims = list(Vaalipiiri = c('00'),
+                             Puolue = c('00'),
+                             Sukupuoli = c('1', '2'),
+                             Ikä = c('Sar18', 'Sar19', 'Sar20', 'Sar21', 'Sar22', 'Sar23', 'Sar24', 'Sar25', 'Sar26', 'Sar27', 'Sar28', 'Sar29', 'Sar30', 'Sar31', 'Sar32', 'Sar33', 'Sar34', 'Sar35', 'Sar36', 'Sar37', 'Sar38', 'Sar39', 'Sar40', 'Sar41', 'Sar42', 'Sar43', 'Sar44', 'Sar45', 'Sar46', 'Sar47', 'Sar48', 'Sar49', 'Sar50', 'Sar51', 'Sar52', 'Sar53', 'Sar54', 'Sar55', 'Sar56', 'Sar57', 'Sar58', 'Sar59', 'Sar60', 'Sar61', 'Sar62', 'Sar63', 'Sar64', 'Sar65', 'Sar66', 'Sar67', 'Sar68', 'Sar69', 'Sar70', 'Sar71', 'Sar72', 'Sar73', 'Sar74', 'Sar75', 'Sar76', 'Sar77', 'Sar78', 'Sar79', 'Sar81', 'Sar82', 'Sar84', 'Sar85')),
+                 clean = TRUE) %>% 
+  as.tibble %>%
+  mutate(ika = str_sub(Ikä, 1, 2) %>% as.numeric) %>% filter(ika < 78) 
+
+
+evaa %>% 
+  ggplot(aes(ika, values, fill = Sukupuoli)) + 
+  theme_minimal() + 
+  scale_fill_brewer(palette = "Paired") + 
+  labs(y = "Ehdokasosuus", x = "Hakijan ikä", fill = NULL, title = "2019 Eduskuntavaalien ehdokkaiden sukupuolivinouma ikäryhmissä") +
+  geom_col(position = "fill") + 
+  geom_hline(aes(yintercept = 0.5), alpha = 0.5) +
+  scale_x_continuous(expand = c(0,0),
+                     breaks = seq(20, 80, by = 5)) + 
+  scale_y_continuous(labels = function(x) paste(x*100, "%"),
+                     expand = c(0,0))
+
+#ggplot2::ggsave("c:/users/marku/desktop/sukupuolivinouma2019.png", h = 3, w = 8)
+
+```

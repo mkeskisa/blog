@@ -1,0 +1,62 @@
+---
+title: "2019 Eduskuntavaalien ehdokkaiden sukupuolivinouma"
+author: Markus Keski-Säntti
+date: '2019-06-16'
+slug: eduskuntavaalien-ehdokkaiden-sukupuolivinouma
+categories: []
+tags: []
+subtitle: ''
+---
+
+
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros risus, fringilla eget bibendum id, gravida et mauris. Curabitur quis dui id mauris elementum viverra. Nulla ac mi nec metus gravida cursus. Nam commodo hendrerit libero eu rutrum. Nulla sed tempor diam. Duis molestie nunc sit amet ante porta dignissim. Nunc vitae pulvinar massa. In hac habitasse platea dictumst. Nunc varius ornare dui, a interdum mauris. Ut posuere, massa ut mollis suscipit, risus tortor semper libero, sit amet viverra tortor nisl ut lorem. Sed sed bibendum leo. Nunc eget consequat nibh. Integer nulla libero, elementum a mattis et, hendrerit eu quam.</p>
+<div id="sarjatilanne-kirjoitushetkella" class="section level1">
+<h1><img src="/post/2018-12-22-liigan-päästettyjen-maalien-ennätykset-ja-niiden-polut_files/chrome_2018-12-22_20-40-06.png" alt="Sarjatilanne kirjoitushetkellä" /></h1>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------------------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.1.0     v purrr   0.2.5
+## v tibble  2.0.1     v dplyr   0.7.8
+## v tidyr   0.8.2     v stringr 1.3.1
+## v readr   1.1.1     v forcats 0.3.0</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## -- Conflicts ---------------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre class="r"><code>library(pxweb)</code></pre>
+<pre><code>## pxweb: R tools for PX-WEB API.
+## Copyright (C) 2014-2016 Mans Magnusson, Leo Lahti, Love Hansson et al.
+## https://github.com/ropengov/pxweb</code></pre>
+<pre class="r"><code>evaa &lt;- 
+  get_pxweb_data(url = &quot;http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/vaa/evaa/evaa_2019/110_evaa_2019_tau_101.px&quot;,
+                 dims = list(Vaalipiiri = c(&#39;00&#39;),
+                             Puolue = c(&#39;00&#39;),
+                             Sukupuoli = c(&#39;1&#39;, &#39;2&#39;),
+                             Ikä = c(&#39;Sar18&#39;, &#39;Sar19&#39;, &#39;Sar20&#39;, &#39;Sar21&#39;, &#39;Sar22&#39;, &#39;Sar23&#39;, &#39;Sar24&#39;, &#39;Sar25&#39;, &#39;Sar26&#39;, &#39;Sar27&#39;, &#39;Sar28&#39;, &#39;Sar29&#39;, &#39;Sar30&#39;, &#39;Sar31&#39;, &#39;Sar32&#39;, &#39;Sar33&#39;, &#39;Sar34&#39;, &#39;Sar35&#39;, &#39;Sar36&#39;, &#39;Sar37&#39;, &#39;Sar38&#39;, &#39;Sar39&#39;, &#39;Sar40&#39;, &#39;Sar41&#39;, &#39;Sar42&#39;, &#39;Sar43&#39;, &#39;Sar44&#39;, &#39;Sar45&#39;, &#39;Sar46&#39;, &#39;Sar47&#39;, &#39;Sar48&#39;, &#39;Sar49&#39;, &#39;Sar50&#39;, &#39;Sar51&#39;, &#39;Sar52&#39;, &#39;Sar53&#39;, &#39;Sar54&#39;, &#39;Sar55&#39;, &#39;Sar56&#39;, &#39;Sar57&#39;, &#39;Sar58&#39;, &#39;Sar59&#39;, &#39;Sar60&#39;, &#39;Sar61&#39;, &#39;Sar62&#39;, &#39;Sar63&#39;, &#39;Sar64&#39;, &#39;Sar65&#39;, &#39;Sar66&#39;, &#39;Sar67&#39;, &#39;Sar68&#39;, &#39;Sar69&#39;, &#39;Sar70&#39;, &#39;Sar71&#39;, &#39;Sar72&#39;, &#39;Sar73&#39;, &#39;Sar74&#39;, &#39;Sar75&#39;, &#39;Sar76&#39;, &#39;Sar77&#39;, &#39;Sar78&#39;, &#39;Sar79&#39;, &#39;Sar81&#39;, &#39;Sar82&#39;, &#39;Sar84&#39;, &#39;Sar85&#39;)),
+                 clean = TRUE) %&gt;% 
+  as.tibble %&gt;%
+  mutate(ika = str_sub(Ikä, 1, 2) %&gt;% as.numeric) %&gt;% filter(ika &lt; 78) </code></pre>
+<pre><code>## Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
+## This warning is displayed once per session.</code></pre>
+<pre class="r"><code>evaa %&gt;% 
+  ggplot(aes(ika, values, fill = Sukupuoli)) + 
+  theme_minimal() + 
+  scale_fill_brewer(palette = &quot;Paired&quot;) + 
+  labs(y = &quot;Ehdokasosuus&quot;, x = &quot;Hakijan ikä&quot;, fill = NULL, title = &quot;2019 Eduskuntavaalien ehdokkaiden sukupuolivinouma ikäryhmissä&quot;) +
+  geom_col(position = &quot;fill&quot;) + 
+  geom_hline(aes(yintercept = 0.5), alpha = 0.5) +
+  scale_x_continuous(expand = c(0,0),
+                     breaks = seq(20, 80, by = 5)) + 
+  scale_y_continuous(labels = function(x) paste(x*100, &quot;%&quot;),
+                     expand = c(0,0))</code></pre>
+<p><img src="/post/2019-06-16-2019-eduskuntavaalien-ehdokkaiden-sukupuolivinouma_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>#ggplot2::ggsave(&quot;c:/users/marku/desktop/sukupuolivinouma2019.png&quot;, h = 3, w = 8)</code></pre>
+</div>
