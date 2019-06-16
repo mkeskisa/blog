@@ -18,7 +18,8 @@
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
       <author>markuskeskisantti@gmail.com (Markus Keski-Säntti)</author>
       <guid>https://mkeskisa.netlify.com/post/eduskuntavaalien-ehdokkaiden-sukupuolivinouma/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros risus, fringilla eget bibendum id, gravida et mauris. Curabitur quis dui id mauris elementum viverra. Nulla ac mi nec metus gravida cursus. Nam commodo hendrerit libero eu rutrum. Nulla sed tempor diam. Duis molestie nunc sit amet ante porta dignissim. Nunc vitae pulvinar massa. In hac habitasse platea dictumst. Nunc varius ornare dui, a interdum mauris. Ut posuere, massa ut mollis suscipit, risus tortor semper libero, sit amet viverra tortor nisl ut lorem.</description>
+      <description>Päivän byrokraatin artikkelissa pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuoli jakauma.
+library(tidyverse)## Warning: package &amp;#39;tidyverse&amp;#39; was built under R version 3.5.2## -- Attaching packages ------------------------------------------------------------------------------------------------------------------------- tidyverse 1.2.1 --## v ggplot2 3.1.0 v purrr 0.2.5## v tibble 2.0.1 v dplyr 0.7.8## v tidyr 0.8.2 v stringr 1.3.1## v readr 1.1.1 v forcats 0.3.0## Warning: package &amp;#39;tibble&amp;#39; was built under R version 3.</description>
     </item>
     
     <item>

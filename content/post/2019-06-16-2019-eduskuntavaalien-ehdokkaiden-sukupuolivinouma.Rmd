@@ -11,9 +11,7 @@ subtitle: ''
 ```{r message=FALSE, warning=FALSE, echo = F}
 library(blogdown)
 ```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros risus, fringilla eget bibendum id, gravida et mauris. Curabitur quis dui id mauris elementum viverra. Nulla ac mi nec metus gravida cursus. Nam commodo hendrerit libero eu rutrum. Nulla sed tempor diam. Duis molestie nunc sit amet ante porta dignissim. Nunc vitae pulvinar massa. In hac habitasse platea dictumst. Nunc varius ornare dui, a interdum mauris. Ut posuere, massa ut mollis suscipit, risus tortor semper libero, sit amet viverra tortor nisl ut lorem. Sed sed bibendum leo. Nunc eget consequat nibh. Integer nulla libero, elementum a mattis et, hendrerit eu quam.
-
-#![Sarjatilanne kirjoitushetkellä](/post/2018-12-22-liigan-päästettyjen-maalien-ennätykset-ja-niiden-polut_files/chrome_2018-12-22_20-40-06.png)
+Päivän byrokraatin [artikkelissa](http://paivanbyrokraatti.com/2019/06/11/eduskunnan_tasa-arvo) pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuoli jakauma.
 
 ```{r}
 library(tidyverse)
@@ -46,3 +44,6 @@ evaa %>%
 #ggplot2::ggsave("c:/users/marku/desktop/sukupuolivinouma2019.png", h = 3, w = 8)
 
 ```
+#![Sarjatilanne kirjoitushetkellä](/post/2019-06-16-2019-eduskuntavaalien-ehdokkaiden-sukupuolivinouma_files/sukupuolivinouma2019.png)
+
+Näyttää siltä, että eduskuntavaaliehdokkaista suurin osa on miehiä myös nuoremmissa ikäryhmissä, vaikka tämä ei heijastu ministerien sukupuolijakaumaan. Hakijavinouma on erityisen suuri yli 55-vuotiailla.
