@@ -13,7 +13,7 @@ library(blogdown)
 ```
 Päivän byrokraatin [artikkelissa](http://paivanbyrokraatti.com/2019/06/11/eduskunnan_tasa-arvo) pohdittiin ministeriksi päätyneiden sukupuolijakaumaa. Asiaan liittyen päätin tarkistaa, mikä oli ehdolle asettautuneiden henkilöiden sukupuoli jakauma.
 
-```{r}
+```{r eval=TRUE, message=FALSE, warning=FALSE, echo = TRUE}
 library(tidyverse)
 library(lubridate)
 library(pxweb)
